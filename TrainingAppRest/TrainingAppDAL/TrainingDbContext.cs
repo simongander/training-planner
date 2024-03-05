@@ -21,7 +21,7 @@ namespace TrainingAppDAL
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-
+            // Method intentionally left empty.
         }
 
         public DbSet<Training> Training { get; set; }

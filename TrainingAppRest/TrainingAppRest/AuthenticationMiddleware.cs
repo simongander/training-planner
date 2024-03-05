@@ -30,7 +30,6 @@ namespace TrainingAppRest
                 else
                 {
                     context.Response.StatusCode = 401;
-                    return;
                 }
 
             }
@@ -42,7 +41,6 @@ namespace TrainingAppRest
             {
 
                 context.Response.StatusCode = 401;
-                return;
             }
         }
     }

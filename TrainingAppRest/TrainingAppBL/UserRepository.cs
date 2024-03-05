@@ -33,17 +33,14 @@ namespace TrainingAppBL
             var decodedCredString = Encoding.UTF8.GetString(decodedBytes);
             var credentials = decodedCredString.Split(separator: ':', count: 2);
             var user = this.GetUserByUsername(credentials[0]);
-            if (user != null)
+            if (user != null && user.PasswordHash == CreatePwHash(credentials[1]))
             {
-                if (user.PasswordHash == CreatePwHash(credentials[1]))
-                {
-                    var bearer = CreateBearer(credentials[0]);
-                    _cache.Set(bearer, user, _expireTime);
-                    return bearer;
-                }
+                var bearer = CreateBearer(credentials[0]);
+                _cache.Set(bearer, user, _expireTime);
+                return bearer;
             }
 
-            throw new Exception("Unauthorized");
+            throw new UnauthorizedAccessException("Unauthorized");
         }
 
         public void CreateUser(string credString)
@@ -60,7 +57,7 @@ namespace TrainingAppBL
 
         private static string CreatePwHash(string pw)
         {
-            var shaManager = new SHA512Managed();
+            var shaManager = SHA512.Create();
             var encoding = new UTF8Encoding();
             var strBuild = new StringBuilder();
 
@@ -77,13 +74,11 @@ namespace TrainingAppBL
 
         private static string CreateBearer(string username)
         {
-            var shaManager = new SHA512Managed();
+            var shaManager = SHA512.Create();
             var encoding = new UTF8Encoding();
-            var randomGenerator = new RNGCryptoServiceProvider();
-            var randomBytes = new byte[32];
             var strBuild = new StringBuilder();
 
-            randomGenerator.GetBytes(randomBytes);
+            var randomBytes = RandomNumberGenerator.GetBytes(32);
             var usernameBytes = encoding.GetBytes(username);
             var bytes = usernameBytes.Concat(randomBytes);
             var bearer = shaManager.ComputeHash(bytes.ToArray());

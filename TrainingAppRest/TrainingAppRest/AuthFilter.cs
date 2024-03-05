@@ -23,7 +23,7 @@ namespace TrainingAppRest
                 var user = _cache.Get(bearer);
                 if (user == null)
                 {
-                    throw new Exception("Bearer token not valid");
+                    throw new UnauthorizedAccessException("Bearer token not valid");
                 }
             }
         }
