@@ -1,13 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using Microsoft.Extensions.Caching.Memory;
+using System;
 using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
-using Microsoft.Extensions.Caching.Memory;
-using TrainingAppDAL;
-using TrainingAppDAL.Model;
 using TrainingAppBL.Interfaces;
+using TrainingAppDAL;
 using TrainingAppDAL.Interfaces;
+using TrainingAppDAL.Model;
 
 namespace TrainingAppBL
 {

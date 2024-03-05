@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using TrainingAppDAL.Model;
+﻿using TrainingAppDAL.Model;
 
 namespace TrainingAppBL.Interfaces
 {

@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Internal;
+﻿using Microsoft.EntityFrameworkCore;
 using TrainingAppDAL.Interfaces;
 using TrainingAppDAL.Model;
 
@@ -26,7 +21,7 @@ namespace TrainingAppDAL
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            
+
         }
 
         public DbSet<Training> Training { get; set; }

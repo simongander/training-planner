@@ -1,14 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Authorization;
+﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using TrainingAppBL;
+using System;
 using TrainingAppBL.Interfaces;
-using TrainingAppDAL;
 using TrainingAppDAL.Model;
 
 namespace TrainingAppRest.Controllers

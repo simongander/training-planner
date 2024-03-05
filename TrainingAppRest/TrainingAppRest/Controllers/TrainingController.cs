@@ -1,8 +1,6 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Cors;
+using Microsoft.AspNetCore.Mvc;
 using System;
-using TrainingAppBL;
-using TrainingAppDAL;
-using Microsoft.AspNetCore.Cors;
 using TrainingAppBL.Interfaces;
 using TrainingAppDAL.Model;
 
@@ -49,7 +47,7 @@ namespace TrainingAppRest.Controllers
         }
 
         [HttpPost]
-        public ActionResult Create([FromBody]Training training)
+        public ActionResult Create([FromBody] Training training)
         {
             try
             {

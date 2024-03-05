@@ -1,11 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using TrainingAppDAL;
-using TrainingAppDAL.Model;
 using TrainingAppBL.Interfaces;
+using TrainingAppDAL;
 using TrainingAppDAL.Interfaces;
+using TrainingAppDAL.Model;
 
 namespace TrainingAppBL
 {

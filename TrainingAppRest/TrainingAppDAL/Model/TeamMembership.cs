@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Text;
-using Microsoft.EntityFrameworkCore.Scaffolding.Metadata;
+﻿using System.ComponentModel.DataAnnotations;
 
 namespace TrainingAppDAL.Model
 {
