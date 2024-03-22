@@ -8,11 +8,11 @@ namespace TrainingAppBL
 {
     public class TeamRepository : ITeamRepository
     {
-        private readonly TrainingDbContext _context;
+        private readonly ITrainingDbContext _context;
 
         public TeamRepository(ITrainingDbContext context)
         {
-            this._context = context as TrainingDbContext;
+            this._context = context;
         }
 
         public Team GetTeamById(int id)

@@ -9,11 +9,11 @@ namespace TrainingAppBL
 {
     public class TeamMembershipRepository : ITeamMembershipRepository
     {
-        private readonly TrainingDbContext _context;
+        private readonly ITrainingDbContext _context;
 
         public TeamMembershipRepository(ITrainingDbContext context)
         {
-            this._context = context as TrainingDbContext;
+            this._context = context;
         }
 
         public List<TeamMembership> GetTeamMembershipsOfUser(int userId)

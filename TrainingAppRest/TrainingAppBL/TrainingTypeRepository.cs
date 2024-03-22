@@ -9,11 +9,11 @@ namespace TrainingAppBL
 {
     public class TrainingTypeRepository : ITrainingTypeRepository
     {
-        private readonly TrainingDbContext _context;
+        private readonly ITrainingDbContext _context;
 
         public TrainingTypeRepository(ITrainingDbContext context)
         {
-            this._context = context as TrainingDbContext;
+            this._context = context;
         }
 
         public List<TrainingType> GetAllTypes()
