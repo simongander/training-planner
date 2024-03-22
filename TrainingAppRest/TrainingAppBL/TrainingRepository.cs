@@ -9,11 +9,11 @@ namespace TrainingAppBL
 {
     public class TrainingRepository : ITrainingRepository
     {
-        private readonly TrainingDbContext _context;
+        private readonly ITrainingDbContext _context;
 
         public TrainingRepository(ITrainingDbContext context)
         {
-            this._context = context as TrainingDbContext;
+            this._context = context;
         }
 
         public List<Training> GetTrainingsOfUser(int userId)
@@ -33,14 +33,21 @@ namespace TrainingAppBL
 
         public void CreateTraining(Training training)
         {
-            this._context.Training.Add(training);
+            this._context.Add(training);
             this._context.SaveChanges();
         }
 
         public void UpdateTraining(Training training)
         {
-            this._context.Training.Update(training);
-            this._context.SaveChanges();
+            var entity = _context.Training.First(t => t.TrainingId == training.TrainingId);
+            entity.Description = training.Description;
+            entity.Date = training.Date;
+            entity.CreatorId = training.CreatorId;
+            entity.TeamId = training.TeamId;
+            entity.Place = training.Place;
+            entity.TypeId = training.TypeId;
+            _context.Training.Update(entity);
+            _context.SaveChanges();
         }
     }
 }
