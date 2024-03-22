@@ -15,7 +15,7 @@ namespace TrainingAppRest.BL.Test
 {
     internal class TrainingRepositoryTest
     {
-        private TrainingRepository _trainingRepository;
+        private readonly TrainingRepository _trainingRepository;
 
         public TrainingRepositoryTest()
         {
