@@ -22,7 +22,6 @@ namespace TrainingAppRest.Controllers
 
         [AllowAnonymous]
         [HttpPost]
-        //[HttpOptions]
         public ActionResult Authenticate()
         {
             try
@@ -36,14 +35,13 @@ namespace TrainingAppRest.Controllers
                 };
                 return Ok(bearer);
             }
-            catch (Exception)
+            catch (UnauthorizedAccessException)
             {
                 return Unauthorized();
             }
         }
 
         [HttpPost]
-        //[HttpOptions]
         public ActionResult Create()
         {
             try
