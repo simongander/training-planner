@@ -63,8 +63,6 @@ namespace TrainingAppRest
 
             app.UseCors("AppOrigin");
             app.UseHttpsRedirection();
-            //app.MapWhen(context => !context.Request.Path.StartsWithSegments("/api/user"),
-            //    appBuilder => app.UseMiddleware<AuthenticationMiddleware>());
             app.UseMiddleware<AuthenticationMiddleware>();
 
             app.UseSwaggerUi();
