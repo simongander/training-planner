@@ -1,5 +1,6 @@
 ﻿using Microsoft.Extensions.Caching.Memory;
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
@@ -12,14 +13,16 @@ namespace TrainingAppBL
 {
     public class UserRepository : IUserRepository
     {
-        private readonly TrainingDbContext _context;
+        private readonly ITrainingDbContext _context;
         private readonly IMemoryCache _cache;
+        private readonly string _salt;
         private readonly TimeSpan _expireTime = new TimeSpan(7, 0, 0, 0);
 
-        public UserRepository(ITrainingDbContext context, IMemoryCache memoryCache)
+        public UserRepository(ITrainingDbContext context, IMemoryCache memoryCache, string salt = null)
         {
-            this._context = context as TrainingDbContext;
+            this._context = context;
             this._cache = memoryCache;
+            this._salt = salt;
         }
 
         public User GetUserByUsername(string username)
@@ -72,7 +75,7 @@ namespace TrainingAppBL
             return strBuild.ToString();
         }
 
-        private static string CreateBearer(string username)
+        private string CreateBearer(string username)
         {
             var shaManager = SHA512.Create();
             var encoding = new UTF8Encoding();
@@ -80,7 +83,16 @@ namespace TrainingAppBL
 
             var randomBytes = RandomNumberGenerator.GetBytes(32);
             var usernameBytes = encoding.GetBytes(username);
-            var bytes = usernameBytes.Concat(randomBytes);
+            List<byte> bytes;
+            if (_salt != null)
+            {
+                bytes = usernameBytes.Concat(encoding.GetBytes(_salt)).ToList();
+            }
+            else
+            {
+                bytes = usernameBytes.Concat(randomBytes).ToList();
+            }
+
             var bearer = shaManager.ComputeHash(bytes.ToArray());
 
             foreach (var b in bearer)
