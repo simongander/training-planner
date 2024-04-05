@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using TrainingAppDAL.Interfaces;
-using TrainingAppDAL.Model;
+using TrainingAppModel;
 
 namespace TrainingAppDAL
 {

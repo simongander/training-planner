@@ -1,7 +1,7 @@
 ﻿using TrainingAppDAL.Interfaces;
 using TrainingAppDAL;
 using TrainingAppBL;
-using TrainingAppDAL.Model;
+using TrainingAppModel;
 
 namespace TrainingAppRest.BL.Test
 {

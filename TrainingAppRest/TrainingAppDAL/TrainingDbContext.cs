@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using TrainingAppDAL.Interfaces;
-using TrainingAppDAL.Model;
+using TrainingAppModel;
 
 namespace TrainingAppDAL
 {

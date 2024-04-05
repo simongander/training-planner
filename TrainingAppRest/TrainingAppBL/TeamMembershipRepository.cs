@@ -3,7 +3,7 @@ using System.Linq;
 using TrainingAppBL.Interfaces;
 using TrainingAppDAL;
 using TrainingAppDAL.Interfaces;
-using TrainingAppDAL.Model;
+using TrainingAppModel;
 
 namespace TrainingAppBL
 {

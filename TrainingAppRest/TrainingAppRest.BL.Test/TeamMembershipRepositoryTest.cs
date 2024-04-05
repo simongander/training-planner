@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using TrainingAppBL;
 using TrainingAppDAL.Interfaces;
 using TrainingAppDAL;
-using TrainingAppDAL.Model;
+using TrainingAppModel;
 
 namespace TrainingAppRest.BL.Test
 {

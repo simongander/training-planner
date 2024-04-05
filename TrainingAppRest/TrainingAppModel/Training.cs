@@ -1,7 +1,7 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
 
-namespace TrainingAppDAL.Model
+namespace TrainingAppModel
 {
     public class Training
     {

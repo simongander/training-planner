@@ -1,4 +1,4 @@
-﻿using TrainingAppDAL.Model;
+﻿using TrainingAppModel;
 
 namespace TrainingAppBL.Interfaces
 {

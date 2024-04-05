@@ -1,15 +1,7 @@
-﻿using Microsoft.Extensions.Caching.Memory;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using TrainingAppBL;
+﻿using TrainingAppBL;
 using TrainingAppDAL.Interfaces;
 using TrainingAppDAL;
-using TrainingAppDAL.Model;
-using Org.BouncyCastle.Bcpg;
-using Org.BouncyCastle.Crypto.Prng;
+using TrainingAppModel;
 
 namespace TrainingAppRest.BL.Test
 {

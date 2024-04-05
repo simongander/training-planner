@@ -1,4 +1,4 @@
-﻿namespace TrainingAppDAL.Model
+﻿namespace TrainingAppModel
 {
     public class Bearer
     {

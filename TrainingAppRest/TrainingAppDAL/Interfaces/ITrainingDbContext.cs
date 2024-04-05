@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.ChangeTracking;
-using TrainingAppDAL.Model;
+using TrainingAppModel;
 
 namespace TrainingAppDAL.Interfaces
 {
