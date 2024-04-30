@@ -38,7 +38,7 @@ namespace TrainingAppRest
                 });
             });
 
-            services.AddTransient(typeof(ITrainingDbContext), (sp) => new TrainingDbContext(config.GetConnectionString("TrainingDb")));
+            services.AddTransient(typeof(ITrainingDbContext), (sp) => new TrainingDbContextInMemory());
             services.AddTransient(typeof(IUserRepository), typeof(UserRepository));
             services.AddTransient(typeof(ITrainingTypeRepository), typeof(TrainingTypeRepository));
             services.AddTransient(typeof(ITrainingRepository), typeof(TrainingRepository));
