@@ -28,6 +28,9 @@ namespace TrainingAppRest
 
             services.AddMemoryCache();
 
+            services.AddControllers();
+
+
             services.AddCors(options =>
             {
                 options.AddPolicy("AppOrigin", builder =>
@@ -45,7 +48,8 @@ namespace TrainingAppRest
             services.AddTransient(typeof(ITeamRepository), typeof(TeamRepository));
             services.AddTransient(typeof(ITeamMembershipRepository), typeof(TeamMembershipRepository));
 
-            services.AddSwaggerDocument();
+            services.AddOpenApiDocument();
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -61,11 +65,17 @@ namespace TrainingAppRest
                 app.UseHsts();
             }
 
-            app.UseCors("AppOrigin");
+            
             app.UseHttpsRedirection();
-            app.UseMiddleware<AuthenticationMiddleware>();
+            //app.UseMiddleware<AuthenticationMiddleware>();
 
+            app.UseRouting();
+            app.UseCors("AppOrigin");
+            app.UseEndpoints(c => c.MapDefaultControllerRoute());
+
+            app.UseOpenApi();
             app.UseSwaggerUi();
+
         }
     }
 }
