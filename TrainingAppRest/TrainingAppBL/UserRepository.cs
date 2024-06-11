@@ -81,7 +81,13 @@ namespace TrainingAppBL
             var encoding = new UTF8Encoding();
             var strBuild = new StringBuilder();
 
-            var randomBytes = RandomNumberGenerator.GetBytes(32);
+            var rng = new Random();
+            var randomBytes = new byte[32];
+            rng.NextBytes(randomBytes);
+
+            // The Correct way
+            // var randomBytes = RandomNumberGenerator.GetBytes(32);
+
             var usernameBytes = encoding.GetBytes(username);
             List<byte> bytes;
             if (_salt != null)

@@ -1,0 +1,1 @@
+gitleaks detect gitleaks-report.json
